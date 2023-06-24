@@ -8,10 +8,7 @@ import pickle
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pip
-import joblib
 
-# Load the model
-model = joblib.load('src/model/prophet_model.pkl')
 
 try:
     #insert headers
@@ -38,8 +35,9 @@ try:
             if frequency=="D" or frequency=='W':
                 st.success("Inputs received successfully ✅")
 
-                # Load the model
-                model = joblib.load('src/model/prophet_model.pkl')
+                #import model
+                with open('src/model/prophet_model.pkl','rb') as f:
+                    model=pickle.load(f)
 
                 #pass inputs to the model(To make predictions, prophet requires number of days and frequency)
                 future=model.make_future_dataframe(periods=Number_of_days ,freq=str(frequency),include_history=False)

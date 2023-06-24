@@ -24,7 +24,7 @@ try:
 
         frequency = str(st.text_input("Frequency 'D' for Daily 'W' for weekly ")).upper() #convert to string and change to upper
 
-        Number_of_days = int(st.number_input("Number of day(s)/Week(s)"))#convert to int
+        Number_of_days = int(st.number_input("Number of day(s)/Week(s)", key="number_of_days"))#convert to int
 
         submit = st.form_submit_button("Predict your sales")
 
